@@ -7,7 +7,17 @@ var time = 0;
 var clockRunning = false;
 var oneMinute;
 // setTimeout(quizTimer);
+// *PERHAPS TRY CREATING AN ARRAY IN AN OBJECT. I.E. CREATE AN OBJECT WITH AN ARRAY FOR THE PROPERTY:VALUE PAIRS*
+var questions = {
+    category1:["What is your name?"],
+    category2:["What is your quest?"],
+    category3:["Do you have my stapler?"],
 
+};
+
+$("#1").append(questions.category1[0]);
+$("#2").append(questions.category2[0]);
+$("#3").append(questions.category3[0]);
 // TIMER 
 /* THIS IS CAUSING IMMEDIATE ALERT ON BUTTON PRESS. CLICK IS RUNNING CONCURRENTLY WITH SETTIMEOUT FUNCTION
 setTimeout(oneMinute, 5000);
