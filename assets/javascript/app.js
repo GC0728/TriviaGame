@@ -1,24 +1,49 @@
 // GLOBAL VARIABLES
-var rightAnswer = 0;
-var wrongAnswer = 0;
+var rightCounter = 0;
+var wrongCounter = 0;
 var count = 0;
-
+var gameTimer;
 var time = 0;
 var clockRunning = false;
 var oneMinute;
+// var seconds = Math.floor((t % (1000 * 60)) / 1000);
+
 // setTimeout(quizTimer);
 // *PERHAPS TRY CREATING AN ARRAY IN AN OBJECT. I.E. CREATE AN OBJECT WITH AN ARRAY FOR THE PROPERTY:VALUE PAIRS*
 var questions = {
-    category1:["What is your name?"],
-    category2:["What is your quest?"],
-    category3:["Do you have my stapler?"],
+    cat1:["What is your name?"],
+    cat2:["What is your quest?"],
+    cat3:["Do you have my stapler?"],
 
 };
 
-$("#1").append(questions.category1[0]);
-$("#2").append(questions.category2[0]);
-$("#3").append(questions.category3[0]);
-// TIMER 
+var answerChoices = {
+    choice1: ["Greg Chu"],
+    choice2: ["Learn to Code!"],
+    choice3: [/* MAKE THIS TRUE/FALSE, BOOLEAN? */],
+};
+
+var images = [];
+
+// APPEND QUESTIONS
+$("#1").append(questions.cat1[0]);
+$("#2").append(questions.cat2[0]);
+$("#3").append(questions.cat3[0]);
+
+// APEND ANSWERS
+$(".answerFormat").append(answerChoices.choice1[0]);
+
+// TIMER
+var timeleft = 60;
+var downloadTimer = setInterval(function(){
+  $("#countdown").text(` ${timeleft} seconds remaining `);
+  timeleft -= 1;
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    $("#countdown").text("Finished")
+  }
+}, 1000);
+/////////////////
 /* THIS IS CAUSING IMMEDIATE ALERT ON BUTTON PRESS. CLICK IS RUNNING CONCURRENTLY WITH SETTIMEOUT FUNCTION
 setTimeout(oneMinute, 5000);
 function oneMinute() {
@@ -36,13 +61,27 @@ function start(quizTimer) {
     setTimeout(function(){
         quizTimer.disabled = false;
         alert("UP! TIME IS UP!")
-    }, 5000);
-};
+    }, 1000 * 60);
+    console.log(quizTimer);
 
+};
+// TIMER; COUNTDOWN FROM 60 SECONDS (01:00 --> 00:59...)
+var gameTime = {
+    count:function() {
+        gameTime.time--;
+        var primeTimeGameTime = gameTime.timeConverter(gameTime.time)
+        console.log(primeTimeGameTime);
+    },
+
+    timeConvert:function() {
+        gameTimer = setInterval()
+    }
+}
 // function setTimeout() {
 //     alert("Correct Answers Incorrect Answers"
 //     )
 // };
+
 
 
 
