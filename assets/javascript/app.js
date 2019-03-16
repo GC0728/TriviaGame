@@ -1,5 +1,6 @@
 // GLOBAL VARIABLES
 var trueCounter = 0;
+console.log(trueCounter);
 var wrongCounter = 0;
 var count = 0;
 var gameTimer;
@@ -18,6 +19,8 @@ var quest2 = {
     question: "Who is the Golden God?",
     answer: "Dennis!"
 };
+
+
 // ARRAYS
 var testQuestArray = [quest1.question, quest2.question];
 
@@ -33,29 +36,54 @@ var questions = {
 
 };
 
-// var questions2 = [
-//     {q: "Who is the bird?", a: "letterHere"},
-//     {q: "Who is the golden god?", a: "Dennis!"}
-// ];
+var sunny = [
+    {q: "Who is the bird?", a: "Dee"},
+    {q: "Who is the golden god?", a: "Dennis"},
+    {q: "Whoo pooped the bed", a: "Frank"},
+    {q: "Who slept with Dennis' prom date?", a: "MacDonald"},
+    {q: "Dayman, fighter of the nightman?", a: "True", a2: "False"},
+];
 
 
-
-
-var answerChoices = {
-    choice1: ["Greg Chu"],
-    choice2: ["Learn to Code!"],
-    choice3: [/* MAKE THIS TRUE/FALSE, BOOLEAN? */],
-};
+var choices = ["Dee", "Dennis", "Frank", "MacDonald", "Charlie", "Rickety Cricket", "Artemis", 
+             "Doyle McPoyle", "Waitress", "Maureen Ponderosa", "The Lawyer", "Liam McPoyle", 
+             "Bill Ponderosa", "Gail the Snail", "Charlie's Mom", "Luther", "Jack Kelly"];
 
 var images = [];
 
 // APPEND QUESTIONS
-$("#1").append(gameQuest);
-$("#2").append(questions.cat2);
-$("#3").append(questions.cat3);
+$("#dee").append(sunny[0].q);
+$("#dennis").append(sunny[1].q);
+$("#frank").append(sunny[2].q);
+$("#mac").append(sunny[3].q);
+$("#charlie").append(sunny[4].q);
 
-// APEND ANSWERS
-$(".answerFormat").append(answerChoices.choice1[0]);
+// APEND CHOICES
+$("#d1").append(choices[0]);
+$("#d2").append(choices[5]);
+$("#d3").append(choices[11]);
+$("#d3").append(choices[15]);
+
+
+$("#d2a").append(choices[7]);
+$("#d2b").append(choices[8]);
+$("#d2c").append(choices[1]);
+$("#d2d").append(choices[12]);
+
+$("#f1").append(choices[12]);
+$("#f2").append(choices[2]);
+$("#f3").append(choices[6]);
+$("#f4").append(choices[16]);
+
+$("#m1").append(choices[10]);
+$("#m2").append(choices[3]);
+$("#m3").append(choices[2]);
+$("#m4").append(choices[14]);
+
+$("#c1").append(sunny[4].a);
+$("#c2").append(sunny[4].a2);
+
+
 
 // RANDOM PICKER. QUESTION-ANSWER COMBOS NEEDS TO BE PAIRED TOGETHER. ARRAYS OF OBJECTS RANDOMNESS GENERATOR TO PICK FROM THIS ARRAY. NO REPEATS
 
@@ -101,7 +129,8 @@ function start(quizTimer, gameClock) {
 
 $(".winSelect").click(winAlert);
 function winAlert () {
-    alert(randomArrayItem);
+    trueCounter += 1;
+    console.log(trueCounter);
 };
 // WORKS 03/15/2019: 
 var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
