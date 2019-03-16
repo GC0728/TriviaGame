@@ -7,7 +7,7 @@ var time = 0;
 var clockRunning = false;
 var oneMinute;
 var timeleft = 30;
-
+var randomArrayItem = [];
 // var seconds = Math.floor((t % (1000 * 60)) / 1000);
 var quest1 = {
     question: "Who is the bird?",
@@ -23,9 +23,6 @@ var testQuestArray = [quest1.question, quest2.question];
 
 var testAnswerArray = [quest1.answer, quest2.answer];
 
-var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
-    console.log(randomArrayItem);
-    
 // setTimeout(quizTimer);
 // *PERHAPS TRY CREATING AN ARRAY IN AN OBJECT. I.E. CREATE AN OBJECT WITH AN ARRAY FOR THE PROPERTY:VALUE PAIRS*
 // QUESTIONS ARE ALL OBJECT PROPERTY:VALUE PAIRS, SO CAN CALL BY OBJECT.PROPERTY
@@ -53,7 +50,7 @@ var answerChoices = {
 var images = [];
 
 // APPEND QUESTIONS
-$("#1").append(questions.cat1);
+$("#test").text(`Test ${randomArrayItem} `);
 $("#2").append(questions.cat2);
 $("#3").append(questions.cat3);
 
@@ -104,10 +101,11 @@ function start(quizTimer, gameClock) {
 
 $(".winSelect").click(winAlert);
 function winAlert () {
-    alert("Yep!")
+    alert(randomArrayItem);
 };
 // WORKS 03/15/2019: 
 var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
+    
     console.log(randomArrayItem);
 
 var testSplice = randomArrayItem.splice();
