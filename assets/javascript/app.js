@@ -1,14 +1,31 @@
 // GLOBAL VARIABLES
-var rightCounter = 0;
+var trueCounter = 0;
 var wrongCounter = 0;
 var count = 0;
 var gameTimer;
 var time = 0;
 var clockRunning = false;
 var oneMinute;
-var timeleft = 60;
-// var seconds = Math.floor((t % (1000 * 60)) / 1000);
+var timeleft = 30;
 
+// var seconds = Math.floor((t % (1000 * 60)) / 1000);
+var quest1 = {
+    question: "Who is the bird?",
+    answer: "Dee!"
+};
+
+var quest2 = {
+    question: "Who is the Golden God?",
+    answer: "Dennis!"
+};
+// ARRAYS
+var testQuestArray = [quest1.question, quest2.question];
+
+var testAnswerArray = [quest1.answer, quest2.answer];
+
+var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
+    console.log(randomArrayItem);
+    
 // setTimeout(quizTimer);
 // *PERHAPS TRY CREATING AN ARRAY IN AN OBJECT. I.E. CREATE AN OBJECT WITH AN ARRAY FOR THE PROPERTY:VALUE PAIRS*
 // QUESTIONS ARE ALL OBJECT PROPERTY:VALUE PAIRS, SO CAN CALL BY OBJECT.PROPERTY
@@ -19,10 +36,13 @@ var questions = {
 
 };
 
-var questions2 = {
+// var questions2 = [
+//     {q: "Who is the bird?", a: "letterHere"},
+//     {q: "Who is the golden god?", a: "Dennis!"}
+// ];
 
 
-};
+
 
 var answerChoices = {
     choice1: ["Greg Chu"],
@@ -40,7 +60,7 @@ $("#3").append(questions.cat3);
 // APEND ANSWERS
 $(".answerFormat").append(answerChoices.choice1[0]);
 
-// RANDOM PICKER. QUESTION-ANSWER COMBOS NEEDS TO BE PAIRED TOGETHER. ARRAYS OF OBJECTS RANDOMNESS GENERATOR TO PICK FROM THIS ARRAY
+// RANDOM PICKER. QUESTION-ANSWER COMBOS NEEDS TO BE PAIRED TOGETHER. ARRAYS OF OBJECTS RANDOMNESS GENERATOR TO PICK FROM THIS ARRAY. NO REPEATS
 
 // TIMER
 /* var timeleft = 60;
@@ -70,7 +90,7 @@ function start(quizTimer, gameClock) {
     setTimeout(function(){
         quizTimer.disabled = false;
         alert("UP! TIME IS UP!")
-    }, 1000 * 60);
+    }, 1000 * 32);
     console.log(quizTimer);
     var gameClock = setInterval(function(){
         $("#countdown").text(` ${timeleft} seconds remaining `);
@@ -81,6 +101,19 @@ function start(quizTimer, gameClock) {
         }
       }, 1000);
 };
+
+$(".winSelect").click(winAlert);
+function winAlert () {
+    alert("Yep!")
+};
+// WORKS 03/15/2019: 
+var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
+    console.log(randomArrayItem);
+
+var testSplice = randomArrayItem.splice();
+console.log(testSplice);
+    
+
 
 
 
