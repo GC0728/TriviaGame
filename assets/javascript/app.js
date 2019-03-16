@@ -7,7 +7,7 @@ var time = 0;
 var clockRunning = false;
 var oneMinute;
 var timeleft = 30;
-var randomArrayItem = [];
+var randomArrayItem;
 // var seconds = Math.floor((t % (1000 * 60)) / 1000);
 var quest1 = {
     question: "Who is the bird?",
@@ -50,7 +50,7 @@ var answerChoices = {
 var images = [];
 
 // APPEND QUESTIONS
-$("#test").text(`Test ${randomArrayItem} `);
+$("#1").append(gameQuest);
 $("#2").append(questions.cat2);
 $("#3").append(questions.cat3);
 
@@ -87,7 +87,7 @@ function start(quizTimer, gameClock) {
     setTimeout(function(){
         quizTimer.disabled = false;
         alert("UP! TIME IS UP!")
-    }, 1000 * 32);
+    }, 1000 * 31);
     console.log(quizTimer);
     var gameClock = setInterval(function(){
         $("#countdown").text(` ${timeleft} seconds remaining `);
@@ -108,6 +108,10 @@ var randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.
     
     console.log(randomArrayItem);
 
+function gameQuest() {
+    randomArrayItem = [testQuestArray[Math.floor(Math.random() * testQuestArray.length)]];
+    return randomArrayItem;
+};
 var testSplice = randomArrayItem.splice();
 console.log(testSplice);
     
